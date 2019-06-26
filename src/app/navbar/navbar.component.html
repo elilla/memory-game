@@ -1,0 +1,16 @@
+<ul class="nav">
+    <li class="nav-item img-logo">
+        <img src="../../assets/snapsoft-logo.svg">
+    </li>
+    <li class="nav-item">
+        <p>MEMORY GAME</p>
+    </li>
+    <li class="nav-item">
+        <select class="form-control" id="selectCardNumber">
+            <option *ngFor="let num of numbers">{{num}}</option>
+        </select>
+    </li>
+    <li class="nav-item">
+        <button class="btn btn-danger">START NEW GAME</button>
+    </li>
+</ul>
