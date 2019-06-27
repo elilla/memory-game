@@ -19,7 +19,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'play', pathMatch: 'full'
+    redirectTo: 'landing', pathMatch: 'full'
   },
 ];
 

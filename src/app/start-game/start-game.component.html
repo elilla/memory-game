@@ -1,1 +1,11 @@
-<p>start-game works!</p>
+<div class="container text-center">
+    <h1>SNAPSOFT</h1>
+    <h6>MEMORY GAME</h6>
+    <div class="form-group mt-lg-5">
+        <label for="exampleFormControlSelect1">Deck size:</label>
+        <select class="form-control" id="exampleFormControlSelect1" (change)="setPairNumber($event.target.value)">
+            <option *ngFor="let num of numbers">{{num}}</option>
+        </select>
+    </div>
+    <button class="btn btn-danger" [routerLink]="['/play']">START NEW GAME</button>
+</div>

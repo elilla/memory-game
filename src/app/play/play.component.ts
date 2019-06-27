@@ -31,24 +31,32 @@ export class PlayComponent implements OnInit {
   }
 
   flipCard(cardIndex: number) {
-    if (this.selectedCards.length === 2) {
-      this.checkIsPair();
+    if (this.selectedCards.length === 2 && !this.checkIsPair()) {
+      this.flipBack();
     }
     if (!this.cards[cardIndex].isFlipped) {
       this.cards[cardIndex].isFlipped = true;
       this.selectedCards.push(this.cards[cardIndex]);
     }
+    if (this.selectedCards.length === 2) {
+      this.tryNumber++;
+      this.checkIsPair();
+    }
   }
 
-  checkIsPair() {
+  checkIsPair(): boolean {
     if (this.selectedCards[0].image === this.selectedCards[1].image) {
       this.selectedCards[0].isFinded = true;
       this.selectedCards[1].isFinded = true;
-    } else {
-      this.tryNumber++;
-      this.selectedCards[0].isFlipped = false;
-      this.selectedCards[1].isFlipped = false;
+      this.selectedCards = [];
+      return true;
     }
+    return false;
+  }
+
+  flipBack() {
+    this.selectedCards[0].isFlipped = false;
+    this.selectedCards[1].isFlipped = false;
     this.selectedCards = [];
   }
 }

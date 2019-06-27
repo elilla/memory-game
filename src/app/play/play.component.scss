@@ -31,18 +31,27 @@ img {
   height: 100%;
   width: 100%;
   backface-visibility: hidden;
-}
-
-.card-face-front {
   background: white;
   border-radius: 4px;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 4px 0 rgba(0, 0, 0, 0.19);
 }
 
+
 .card-face-back {
   transform: rotateY( 180deg );
 }
 
+.card-face.card-face-back.find{
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+}
+
 .memory-card.is-flipped {
   transform: rotateY(180deg);
+}
+
+.restart-button {
+  margin-left:auto;
+  margin-right:0;
 }

@@ -7,6 +7,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { StartGameComponent } from './start-game/start-game.component';
 import { LandingComponent } from './landing/landing.component';
 import { PlayComponent } from './play/play.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PlayComponent } from './play/play.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

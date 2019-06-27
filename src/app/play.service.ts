@@ -9,7 +9,8 @@ import {BehaviorSubject} from 'rxjs';
 export class PlayService {
   private cards = [new MemoryCard('angular.png'), new MemoryCard('d3.png'),  new MemoryCard('jenkins.png'),
     new MemoryCard('postcss.png'), new MemoryCard('react.png'), new MemoryCard('redux.png'),
-    new MemoryCard('sass.png'), new MemoryCard('ts.png'), new MemoryCard('webpack.png')];
+    new MemoryCard('sass.png'), new MemoryCard('ts.png'), new MemoryCard('webpack.png'),
+    new MemoryCard('snapsoft-logo.svg')];
   pairNumber: number;
   memoryCardsSubject: BehaviorSubject<MemoryCard[]> = new BehaviorSubject<MemoryCard[]>(null);
 
