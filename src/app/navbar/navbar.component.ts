@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {PlayService} from '../play.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,12 +9,19 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit {
   numbers = [];
 
-  constructor() {
-    this.numbers = Array(8).fill(0).map((x, i) => i + 3); // [0,1,2,3,4]
-    console.log(this.numbers);
+  constructor(private playService: PlayService) {
+    this.numbers = Array(8).fill(0).map((x, i) => i + 3);
   }
 
   ngOnInit() {
+  }
+
+  setPairNumbers(pairNumber: number) {
+    this.playService.setPairNumber(pairNumber);
+  }
+
+  startNewGame() {
+    this.playService.updateMemoryCards();
   }
 
 }

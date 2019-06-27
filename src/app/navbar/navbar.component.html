@@ -6,11 +6,11 @@
         <p>MEMORY GAME</p>
     </li>
     <li class="nav-item">
-        <select class="form-control" id="selectCardNumber">
+        <select class="form-control" id="selectCardNumber" (change)="setPairNumbers($event.target.value)" >
             <option *ngFor="let num of numbers">{{num}}</option>
         </select>
     </li>
     <li class="nav-item">
-        <button class="btn btn-danger">START NEW GAME</button>
+        <button class="btn btn-danger" (click)="startNewGame()">START NEW GAME</button>
     </li>
 </ul>

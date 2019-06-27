@@ -18,16 +18,16 @@ export class PlayComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getMemoryCards();
-  }
-
-  getMemoryCards() {
-    this.cards = this.playService.getMemoryCards();
+    this.playService.memoryCardsSubject.subscribe(resp => {
+        this.cards = resp;
+        this.tryNumber = 0;
+      }
+    );
+    this.playService.updateMemoryCards();
   }
 
   restartGame() {
-    this.getMemoryCards();
-    this.tryNumber = 0;
+    this.playService.updateMemoryCards();
   }
 
   flipCard(cardIndex: number) {
