@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
+import {MemoryCard} from '../MemoryCard';
+import * as _ from 'lodash';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PlayService {
 
-  private cards = ['angular.png', 'd3.png', 'jenkins.png', 'postcss.png', 'react.png',
-    'redux.png', 'sass.png', 'ts.png', 'webpack.png'];
+  private cards = [new MemoryCard('angular.png'), new MemoryCard('d3.png'),  new MemoryCard('jenkins.png'),
+    new MemoryCard('postcss.png'), new MemoryCard('react.png'), new MemoryCard('redux.png'),
+    new MemoryCard('sass.png'), new MemoryCard('ts.png'), new MemoryCard('webpack.png')];
   pairNumber: number;
 
   constructor() {
@@ -17,9 +20,9 @@ export class PlayService {
     this.pairNumber = pairNumber;
   }
 
-  getMemoryCards(): string[] {
-    let memoryCards: string[] = [];
-    memoryCards = [...this.cards.slice(0, this.pairNumber), ...this.cards.slice(0, this.pairNumber)];
+  getMemoryCards(): MemoryCard[] {
+    let memoryCards: MemoryCard[] = [];
+    memoryCards = [..._.cloneDeep(this.cards.slice(0, this.pairNumber)), ..._.cloneDeep(this.cards.slice(0, this.pairNumber))];
     memoryCards.sort(() => Math.random() - 0.5);
     return memoryCards;
   }

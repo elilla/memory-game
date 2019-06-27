@@ -1,16 +1,21 @@
 <div class="container">
     <div class="row">
-        <div class="text-left">Current tries: 0</div>
+        <div class="text-left">Current tries: {{tryNumber}}</div>
         <div class="text-center">3</div>
         <div class="text-right">
             <button class="btn btn-outline-secondary" (click)="restartGame()">RESTART</button>
         </div>
     </div>
     <div class="row">
-        <div class="col mb-5" *ngFor="let card of cards">
-            <div class="memory">
-                <img [src]="'../../assets/cards/' + card"/>
+        <div class="col mb-3" *ngFor="let card of cards; index as i">
+            <div class="scene">
+                <div class="memory-card" [style.pointer-events]="card.isFinded ? 'none': 'auto'"
+                     (click)="flipCard(i)" [ngClass]="card.isFlipped ? 'is-flipped' : ''">
+                    <div class="card-face card-face-front"></div>
+                    <div class="card-face card-face-back"> <img [src]="'../../assets/cards/' + card.image" [alt]="card.image"/></div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
