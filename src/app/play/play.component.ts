@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {PlayService} from '../play.service';
 
 @Component({
   selector: 'app-play',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlayComponent implements OnInit {
 
-  constructor() { }
+  cards: string[];
+
+  constructor(private playService: PlayService) { }
 
   ngOnInit() {
+    this.getMemoryCards();
+  }
+
+  getMemoryCards(){
+    this.cards = this.playService.getMemoryCards();
+  }
+
+  restartGame() {
+    this.getMemoryCards();
   }
 
 }
